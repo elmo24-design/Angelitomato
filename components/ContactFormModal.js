@@ -44,24 +44,29 @@ function ContactFormModal({setShowContactModal}) {
 
          <div className='flex flex-col items-center justify-center relatve h-full px-2 pb-6'>
             <h1 className='text-center text-3xl font-black text-brightOrange'>Contact Me</h1>
-            <form className='mt-5 w-full md:w-3/5 lg:w-2/4' name="contact" method="POST" data-netlify="true" >
+            <form className='mt-5 w-full md:w-3/5 lg:w-2/4' name="contact" action="POST" data-netlify="true" >
 
                <div className='flex flex-col w-full'>
                   <label className='text-sm'>Name</label>
-                  <input type="text" name="name" className='bg-lightGray p-2 rounded-sm outline-none mt-1' required/>
+                  <input type="text" name="name" id="name" className='bg-lightGray p-2 rounded-sm outline-none mt-1' required/>
                </div>
 
                <div className='flex flex-col w-full mt-4'>
                   <label className='text-sm'>E-Mail Address</label>
-                  <input type="email" name="email" className='bg-lightGray p-2 rounded-sm outline-none mt-1' required/>
+                  <input type="email" name="email" id="email" className='bg-lightGray p-2 rounded-sm outline-none mt-1' required/>
                </div>
 
                <div className='flex flex-col w-full mt-4'>
                   <label className='text-sm'>Message</label>
-                  <textarea cols="30" rows="10" name="message" className='bg-lightGray mt-1 p-2 max-h-40 outline-none' required>
+                  <textarea cols="30" rows="10" name="message" id="message" className='bg-lightGray mt-1 p-2 max-h-40 outline-none' required>
 
                   </textarea>
                </div>
+
+               <div className='flex flex-col w-full mt-4'>
+                  <div data-netlify-recaptcha="true"></div>
+               </div>
+
 
                <button type="submit" className='bg-brightOrange w-full text-sm rounded-sm text-white
                p-2 py-3 mt-4 hover:bg-brightOrange/90 duration-200
