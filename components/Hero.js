@@ -1,5 +1,7 @@
 import {BsArrowDownCircle} from 'react-icons/bs'
 import {motion} from 'framer-motion'
+import Image from 'next/image'
+import angelits from '../public/assets/Angelits_hero.png'
 
 function Hero() {
   return (
@@ -34,7 +36,7 @@ function Hero() {
                animate={{ opacity: 1,  transition: {
                   delay: 1.2
                } }}
-               className='hidden absolute -bottom-24 md:flex'
+               className='hidden absolute -bottom-32 md:flex'
             >
                 <BsArrowDownCircle className='flex justify-center text-4xl text-brightOrange md:text-5xl xl:text-6xl animate-bounce'/>
             </motion.div>
@@ -46,7 +48,7 @@ function Hero() {
             transition={{ duration: 1.1 }}
             className="md-2"
          >
-            <img src='/assets/Angelits_hero.png' alt="" className='img-hero'/>
+            <Image src={angelits} alt="logo" className='img-hero'/>
          </motion.div>
       </section>
   )

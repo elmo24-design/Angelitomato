@@ -37,6 +37,7 @@ function Arts({arts, featuredArts, digitalArts, inkedArts }) {
                      height={'100%'} 
                      layout='responsive'
                      onClick={() => setChosenArt(featuredArts[0])}
+                     alt="featured"
                   />
                   <div className="p-5">
                      <h3 className="text-md font-bold">{featuredArts[0].title}</h3>
@@ -52,6 +53,7 @@ function Arts({arts, featuredArts, digitalArts, inkedArts }) {
                         height={'63%'} 
                         layout='responsive'
                         onClick={() => setChosenArt(featuredArts[1])}
+                        alt="featured"
                      />
                      <div className="p-5">
                         <h3 className="text-md font-bold">{featuredArts[1].title}</h3>
@@ -65,6 +67,7 @@ function Arts({arts, featuredArts, digitalArts, inkedArts }) {
                         height={'63%'} 
                         layout='responsive'
                         onClick={() => setChosenArt(featuredArts[2])}
+                        alt="featured"
                      />
                      <div className="p-5">
                         <h3 className="text-md font-bold">{featuredArts[2].title}</h3>
@@ -106,6 +109,7 @@ function Arts({arts, featuredArts, digitalArts, inkedArts }) {
                            height={'70%'} 
                            layout='responsive'
                            onClick={() => setChosenArt(art)}
+                           alt="featured"
                         />
                         <div className="p-5">
                            <h3 className="text-sm font-bold">{art.title}</h3>

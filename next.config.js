@@ -8,6 +8,9 @@ const nextConfig = {
     locales: ["en"],
     defaultLocale: "en",
   },
+  eslint: {
+    ignoreDuringBuilds: true
+  },
   swcMinify: true,
 }
 

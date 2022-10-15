@@ -1,6 +1,7 @@
 import {AiOutlineClose} from 'react-icons/ai'
 import { motion } from 'framer-motion'
 import moment from "moment";
+import Image from 'next/image';
 
 const backdropVariants = {
    hidden:{

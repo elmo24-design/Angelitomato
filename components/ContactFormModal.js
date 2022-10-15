@@ -1,5 +1,7 @@
 import {AiOutlineClose} from 'react-icons/ai'
 import { motion } from 'framer-motion'
+import Image from 'next/image'
+import kamatis from '../public/assets/kamatis.png'
 
 const backdropVariants = {
    hidden: {
@@ -68,9 +70,9 @@ function ContactFormModal({setShowContactModal}) {
                </button>
                
             </form>
-            <img src="../assets/kamatis.png" alt="tomato" 
-               className='absolute -bottom-4 -right-14 w-40 rotate-12 md:w-80 md:-bottom-8 md:-right-28' 
-            />
+            <div className='absolute -bottom-6 -right-14 w-36 rotate-12 md:w-72 lg:w-80 md:-bottom-12 md:-right-28' >
+               <Image src={kamatis} alt="tomato" />
+            </div>
          </div>
       </motion.div>
    </>
