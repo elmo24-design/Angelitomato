@@ -45,8 +45,9 @@ function ContactFormModal({setShowContactModal}) {
          <div className='flex flex-col items-center justify-center relatve h-full px-2 pb-6'>
             <h1 className='text-center text-3xl font-black text-brightOrange'>Contact Me</h1>
 
-            <input type="hidden" name="form-name" value="contact" />
             <form className='mt-5 w-full md:w-3/5 lg:w-2/4' name="contact" method="POST" data-netlify="true" >
+
+               <input type="hidden" name="form-name" value="contact" />
 
                <div className='flex flex-col w-full'>
                   <label className='text-sm'>Name</label>
@@ -64,11 +65,6 @@ function ContactFormModal({setShowContactModal}) {
 
                   </textarea>
                </div>
-
-               <div className='flex flex-col w-full mt-4'>
-                  <div data-netlify-recaptcha="true"></div>
-               </div>
-
 
                <button type="submit" className='bg-brightOrange w-full text-sm rounded-sm text-white
                p-2 py-3 mt-4 hover:bg-brightOrange/90 duration-200
