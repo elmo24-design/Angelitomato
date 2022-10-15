@@ -38,9 +38,9 @@ function ImageModal({ chosenArt, setChosenArt }) {
       >
          <motion.div
          variants={imgVariants} 
-         className="grid grid-cols-1 md:grid-cols-6 md:h-128 md:w-9/12"
+         className="grid grid-cols-1 h-full md:grid-cols-6 md:h-128 md:w-9/12"
          >
-            <div className="grid-1 grid-cols-1 md:col-start-1 md:col-end-4 lg:col-start-1 lg:col-end-5 flex justify-center items-center  bg-brightOrange/25">
+            <div className="grid-1 grid-cols-1 md:col-start-1 md:col-end-4 lg:col-start-1 lg:col-end-5 flex justify-center items-center  bg-white/75">
                <div>
                   <img src={chosenArt.coverPhoto.url} className="modal-img" alt="" />
                </div>
@@ -49,7 +49,7 @@ function ImageModal({ chosenArt, setChosenArt }) {
                onClick={() => setChosenArt(null)}
                className='absolute text-4xl m-2 text-black bg-white hover:text-white hover:bg-black duration-100 p-2 cursor-pointer shadow-lg rounded-full' 
             />
-            <div className="bg-white overflow-y-scroll md:col-start-4 md:col-end-7 lg:col-start-5 lg:col-end-7 h-80 md:h-full p-3 pb-10">
+            <div className="bg-white overflow-y-scroll md:col-start-4 md:col-end-7 lg:col-start-5 lg:col-end-7 h-full p-3 pb-10">
                <div className='flex flex-row items-center'>
                   <div className='bg-brightOrange rounded-full w-10 h-10 flex items-center justify-center'>
                      <img src="../assets/Angelits_hero.png" className='w-12'  alt="" />
@@ -58,14 +58,14 @@ function ImageModal({ chosenArt, setChosenArt }) {
                </div>
               <div className='mt-2'>
                   <p className="text-gray-800 text-xs">Published: {moment(chosenArt.datePublished).format("LL")}</p>
-                  <h2 className='mt-5 font-bold'>{chosenArt.title}</h2>
+                  <h2 className='mt-5 font-bold text-black'>{chosenArt.title}</h2>
                      <div 
-                        className="text-sm pt-5"
+                        className="text-sm pt-5 text-black"
                         dangerouslySetInnerHTML={{__html: chosenArt.content.html}}
                      >
                      </div>
-                     <div className='pt-5'>
-                        <h2 className='font-bold mb-2 text-sm'>Tags: </h2>
+                     <div className='pt-5 '>
+                        <h2 className='font-bold mb-2 text-sm text-black'>Tags: </h2>
                         <div className='flex flex-row items-center flex-wrap text-sm'>
                            {chosenArt.tags.map((tag, index) => (
                               <div key={index} className="ml-1 mt-2 bg-brightOrange text-white py-1 px-3 rounded-xl">

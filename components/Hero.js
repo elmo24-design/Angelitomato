@@ -48,7 +48,9 @@ function Hero() {
             transition={{ duration: 1.1 }}
             className="md-2"
          >
-            <Image src={angelits} alt="logo" className='img-hero'/>
+            <div>
+               <Image src={angelits} alt="logo" className='img-hero'/>
+            </div>
          </motion.div>
       </section>
   )

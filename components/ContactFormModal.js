@@ -29,7 +29,7 @@ function ContactFormModal({setShowContactModal}) {
   return (
    <>
       <motion.div
-         className="backdrop fixed top-0 left-0 w-full h-full bg-white
+         className="backdrop fixed top-0 left-0 w-full h-full bg-white dark:bg-mattBlack
          z-10"
          variants={backdropVariants}
          initial="hidden"
@@ -44,21 +44,23 @@ function ContactFormModal({setShowContactModal}) {
 
          <div className='flex flex-col items-center justify-center relatve h-full px-2 pb-6'>
             <h1 className='text-center text-3xl font-black text-brightOrange'>Contact Me</h1>
-            <form className='mt-5 w-full md:w-3/5 lg:w-2/4' name="contact" action="POST" data-netlify="true" >
+
+            <input type="hidden" name="form-name" value="contact" />
+            <form className='mt-5 w-full md:w-3/5 lg:w-2/4' name="contact" method="POST" data-netlify="true" >
 
                <div className='flex flex-col w-full'>
                   <label className='text-sm'>Name</label>
-                  <input type="text" name="name" id="name" className='bg-lightGray p-2 rounded-sm outline-none mt-1' required/>
+                  <input type="text" name="name" id="name" className='bg-lightGray dark:bg-gray-700 p-2 rounded-sm outline-none mt-1' required/>
                </div>
 
                <div className='flex flex-col w-full mt-4'>
                   <label className='text-sm'>E-Mail Address</label>
-                  <input type="email" name="email" id="email" className='bg-lightGray p-2 rounded-sm outline-none mt-1' required/>
+                  <input type="email" name="email" id="email" className='bg-lightGray dark:bg-gray-700 p-2 rounded-sm outline-none mt-1' required/>
                </div>
 
                <div className='flex flex-col w-full mt-4'>
                   <label className='text-sm'>Message</label>
-                  <textarea cols="30" rows="10" name="message" id="message" className='bg-lightGray mt-1 p-2 max-h-40 outline-none' required>
+                  <textarea cols="30" rows="10" name="message" id="message" className='bg-lightGray dark:bg-gray-700 mt-1 p-2 max-h-40 outline-none' required>
 
                   </textarea>
                </div>

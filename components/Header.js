@@ -1,5 +1,5 @@
 import kamatis from '../public/assets/kamatis.png'
-import { BsFillMoonStarsFill } from 'react-icons/bs'
+import { BsFillMoonStarsFill, BsFillSunFill } from 'react-icons/bs'
 import { FaArrowRight } from 'react-icons/fa';
 import Image from 'next/image'
 import { useState } from 'react';
@@ -19,7 +19,7 @@ const navVariants = {
    },
  }
 
-function Header() {
+function Header({ enableDarkMode, disableDarkMode, darkMode }) {
 
   const [showContactModal, setShowContactModal] = useState(false)
 
@@ -40,11 +40,16 @@ function Header() {
             <h3 className='  text-brightOrange font-black pt-2 hidden md:flex'>angelitomato</h3>
          </div>
          <div className='flex items-center'>
-            <BsFillMoonStarsFill className='text-brightOrange text-2xl cursor-pointer'/>
+            {
+               darkMode ?
+               <BsFillSunFill className='text-brightOrange text-3xl cursor-pointer' onClick={disableDarkMode}/>    
+               :
+               <BsFillMoonStarsFill className='text-brightOrange text-2xl cursor-pointer' onClick={enableDarkMode}/>
+            }
+          
             <a 
-               href="#" 
                className='flex items-center bg-gradient-to-r from-brightOrange to-brightYellow 
-               text-white px-4 py-2 rounded-md ml-8 md:px-6 cta'
+               text-white px-4 py-2 rounded-md ml-8 md:px-6 cursor-pointer cta'
                onClick={() => setShowContactModal(true)}
             >
                Contact Me

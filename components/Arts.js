@@ -22,17 +22,17 @@ function Arts({arts, featuredArts, digitalArts, inkedArts }) {
             transition={{ duration: 0.5 }} 
             className='container mx-auto mt-10 px-1 md:px-2 lg:px-40'
          >
-            <h1 className="text-center text-2xl font-black text-brightOrange xl:text-3xl"><span className="text-black">My</span> Arts</h1>
+            <h1 className="text-center text-2xl font-black text-brightOrange xl:text-3xl"><span className="text-black dark:text-white">My</span> Arts</h1>
 
             {/* Featured div  */}
-            <h2 className="mt-10 font-black text-xl text-mattBlack mb-5">Featured</h2>
+            <h2 className="mt-10 font-black text-xl text-mattBlack mb-5 dark:text-white">Featured</h2>
             <div 
                className="flex flex-col gap-5 md:flex-row"
             >
                {/* first div  */}
-               <div className="md:w-3/5 shadow-md">
+               <div className="md:w-3/5 shadow-md rounded-lg">
                   <Image src={featuredArts[0].coverPhoto.url} 
-                     className="rounded-lg object-cover cursor-pointer hover:scale-110 ease-in duration-200" 
+                     className="rounded-tl-lg rounded-tr-lg object-cover cursor-pointer hover:scale-110 ease-in duration-200" 
                      width={'100%'} 
                      height={'100%'} 
                      layout='responsive'
@@ -41,14 +41,14 @@ function Arts({arts, featuredArts, digitalArts, inkedArts }) {
                   />
                   <div className="p-5">
                      <h3 className="text-md font-bold">{featuredArts[0].title}</h3>
-                     <p className="text-gray-800 text-xs">Published: {moment(featuredArts[0].datePublished).format("LL")}</p>
+                     <p className="text-gray-800 dark:text-white text-xs">Published: {moment(featuredArts[0].datePublished).format("LL")}</p>
                   </div>
                </div>
                {/* Second div */}
                <div className="flex flex-col md:w-2/5">
                   <div className="shadow-md">
                      <Image src={featuredArts[1].coverPhoto.url} 
-                        className="rounded-lg object-cover cursor-pointer hover:scale-110 ease-in duration-200" 
+                        className="rounded-tl-lg rounded-tr-lg object-cover cursor-pointer hover:scale-110 ease-in duration-200" 
                         width={'100%'} 
                         height={'63%'} 
                         layout='responsive'
@@ -57,12 +57,12 @@ function Arts({arts, featuredArts, digitalArts, inkedArts }) {
                      />
                      <div className="p-5">
                         <h3 className="text-md font-bold">{featuredArts[1].title}</h3>
-                        <p className="text-gray-800 text-xs">Published: {moment(featuredArts[1].datePublished).format("LL")}</p>
+                        <p className="text-gray-800 dark:text-white text-xs">Published: {moment(featuredArts[1].datePublished).format("LL")}</p>
                      </div>
                   </div>
                   <div className="shadow-md md:mt-auto">
                      <Image src={featuredArts[2].coverPhoto.url} 
-                        className="rounded-lg object-cover cursor-pointer hover:scale-110 ease-in duration-200" 
+                        className="rounded-tl-lg rounded-tr-lg object-cover cursor-pointer hover:scale-110 ease-in duration-200" 
                         width={'100%'} 
                         height={'63%'} 
                         layout='responsive'
@@ -71,7 +71,7 @@ function Arts({arts, featuredArts, digitalArts, inkedArts }) {
                      />
                      <div className="p-5">
                         <h3 className="text-md font-bold">{featuredArts[2].title}</h3>
-                        <p className="text-gray-800 text-xs">Published: {moment(featuredArts[2].datePublished).format("LL")}</p>
+                        <p className="text-gray-800 dark:text-white text-xs">Published: {moment(featuredArts[2].datePublished).format("LL")}</p>
                      </div>
                   </div>
                </div>
@@ -79,7 +79,7 @@ function Arts({arts, featuredArts, digitalArts, inkedArts }) {
          
             {/* All Arts div  */}
             <div className="mt-10 pb-10">
-               <h2 className="font-black text-xl text-mattBlack mb-5">All Arts</h2>
+               <h2 className="font-black text-xl text-mattBlack mb-5 dark:text-white">All Arts</h2>
 
                <div className="mb-5">
                   <div className={`inline-block border-solid  border-brightOrange text-brightOrange 
@@ -104,7 +104,7 @@ function Arts({arts, featuredArts, digitalArts, inkedArts }) {
                      // Arts Card 
                      <div key={art.id} className="shadow-md">
                         <Image src={art.coverPhoto.url} 
-                           className="rounded-lg object-cover cursor-pointer hover:scale-110 ease-in duration-200" 
+                           className="rounded-tl-lg rounded-tr-lg object-cover cursor-pointer hover:scale-110 ease-in duration-200" 
                            width={'100%'} 
                            height={'70%'} 
                            layout='responsive'
@@ -113,7 +113,7 @@ function Arts({arts, featuredArts, digitalArts, inkedArts }) {
                         />
                         <div className="p-5">
                            <h3 className="text-sm font-bold">{art.title}</h3>
-                           <p className="text-gray-800 text-xs">Published: {moment(art.datePublished).format("LL")}</p>
+                           <p className="text-gray-800 dark:text-white text-xs">Published: {moment(art.datePublished).format("LL")}</p>
                         </div>
                      </div>
                   ))}

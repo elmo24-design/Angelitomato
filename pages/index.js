@@ -6,6 +6,7 @@ import Hero from '../components/Hero'
 import Socials from '../components/Socials'
 import Arts from '../components/Arts'
 import Footer from '../components/Footer'
+import { useState, useEffect } from 'react'
 
 const graphcms = new GraphQLClient(
   "https://api-us-east-1.hygraph.com/v2/cl8zemt1c0x0h01ul5cplenr8/master"
@@ -59,17 +60,41 @@ export async function getStaticProps(){
 }
 
 export default function Home({ arts, featuredArts, digitalArts, inkedArts }) {
+
+  const [darkMode, setDarkMode] = useState(false)
+
+  const enableDarkMode = () => {
+    setDarkMode(true)
+    localStorage.setItem('darkmode', 'enabled')
+  }
+
+  const disableDarkMode = () => {
+    setDarkMode(false)
+    localStorage.setItem('darkmode', null)
+  }
+  
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      // Perform localStorage action
+      let darkmode = localStorage.getItem('darkmode')
+
+      if(darkmode === 'enabled'){
+        enableDarkMode()
+      }
+    }
+  }, [])
+
   return (
-    <div>
+    <div className={darkMode ? "dark" : ""}>
       <Head>
         <title>Angelitomato</title>
         <meta name="description" content="Angelitomato website" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className='overflow-x-hidden'>
+      <main className="overflow-x-hidden dark:bg-mattBlack dark:text-white">
         <div className='container mx-auto px-1 md:px-2 lg:px-40'>
-          <Header />
+          <Header enableDarkMode={enableDarkMode} disableDarkMode={disableDarkMode} darkMode={darkMode} />
           <Hero />
         </div>
         <Socials />
