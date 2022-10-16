@@ -2,6 +2,8 @@ import {AiOutlineClose} from 'react-icons/ai'
 import { motion } from 'framer-motion'
 import Image from 'next/image'
 import kamatis from '../public/assets/kamatis.png'
+import { useForm, ValidationError } from "@formspree/react";
+import { useRouter } from 'next/router';
 
 const backdropVariants = {
    hidden: {
@@ -17,7 +19,7 @@ const backdropVariants = {
       }
    },
    exit: {
-      x: '-100vw',
+      x: '100vw',
       transition: {
          ease: 'easeInOut'
       }
@@ -25,7 +27,14 @@ const backdropVariants = {
 }
 
 function ContactFormModal({setShowContactModal}) {
-  
+   const [state, handleSubmit] = useForm(process.env.NEXT_PUBLIC_FORM);
+
+   const router = useRouter()
+
+   if (state.succeeded) {
+      router.push('/Success')
+   }
+
   return (
    <>
       <motion.div
@@ -44,26 +53,26 @@ function ContactFormModal({setShowContactModal}) {
 
          <div className='flex flex-col items-center justify-center relatve h-full px-2 pb-6'>
             <h1 className='text-center text-3xl font-black text-brightOrange'>Contact Me</h1>
-
-            <form className='mt-5 w-full md:w-3/5 lg:w-2/4' name="contact" method="POST" data-netlify="true" >
-
-               <input type="hidden" name="form-name" value="contact" />
+            <form className='mt-5 w-full md:w-3/5 lg:w-2/4' name="contact" onSubmit={handleSubmit}>
 
                <div className='flex flex-col w-full'>
-                  <label className='text-sm'>Name</label>
+                  <label htmlFor='name' className='text-sm'>Name</label>
                   <input type="text" name="name" id="name" className='bg-lightGray dark:bg-gray-700 p-2 rounded-sm outline-none mt-1' required/>
+                  <ValidationError prefix="Name" field="name" errors={state.errors} />
                </div>
 
                <div className='flex flex-col w-full mt-4'>
-                  <label className='text-sm'>E-Mail Address</label>
+                  <label htmlFor='email' className='text-sm'>E-Mail Address</label>
                   <input type="email" name="email" id="email" className='bg-lightGray dark:bg-gray-700 p-2 rounded-sm outline-none mt-1' required/>
+                  <ValidationError prefix="Email" field="email" errors={state.errors} />
                </div>
 
                <div className='flex flex-col w-full mt-4'>
-                  <label className='text-sm'>Message</label>
+                  <label htmlFor='message' className='text-sm'>Message</label>
                   <textarea cols="30" rows="10" name="message" id="message" className='bg-lightGray dark:bg-gray-700 mt-1 p-2 max-h-40 outline-none' required>
 
                   </textarea>
+                  <ValidationError prefix="Message" field="message" errors={state.errors} />
                </div>
 
                <button type="submit" className='bg-brightOrange w-full text-sm rounded-sm text-white
@@ -72,6 +81,7 @@ function ContactFormModal({setShowContactModal}) {
                   Submit
                </button>
                
+               <ValidationError errors={state.errors} />
             </form>
             <div className='absolute -bottom-6 -right-14 w-36 rotate-12 md:w-72 lg:w-80 md:-bottom-12 md:-right-28' >
                <Image src={kamatis} alt="tomato" />

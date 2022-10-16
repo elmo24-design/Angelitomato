@@ -8,9 +8,7 @@ import Arts from '../components/Arts'
 import Footer from '../components/Footer'
 import { useState, useEffect } from 'react'
 
-const graphcms = new GraphQLClient(
-  "https://api-us-east-1.hygraph.com/v2/cl8zemt1c0x0h01ul5cplenr8/master"
-); 
+const graphcms = new GraphQLClient(process.env.NEXT_PUBLIC_API); 
 
 const query = gql`
 {

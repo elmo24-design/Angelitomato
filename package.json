@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@formspree/react": "^2.4.0",
     "framer-motion": "^7.5.3",
     "graphql": "^16.6.0",
     "graphql-request": "^5.0.0",
